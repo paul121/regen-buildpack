@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "---"
+echo "  PATH: $PATH:/app/vendor/regen:/app/vendor/jq"
