@@ -21,4 +21,5 @@ echo "-----> Installing jq"
 curl -LO https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64
 echo "5942c9b0934e510ee61eb3e30273f1b3fe2590df93933a93d7c58b81d19c8ff5  jq-linux-amd64" | sha256sum -c
 mkdir -p vendor/jq
-mv jq-linux-amd64 vendor/jq
+mv jq-linux-amd64 vendor/jq/jq
+chmod +x vendor/jq/jq
