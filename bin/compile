@@ -5,6 +5,7 @@ set -e
 
 # change to the the BUILD_DIR ($1)
 cd $1
+mkdir -p "$1/bin/"
 
 echo "-----> Installing regen cli"
 
@@ -12,14 +13,12 @@ echo "-----> Installing regen cli"
 curl -LO https://github.com/regen-network/regen-ledger/releases/download/v5.1.2/regen-ledger_linux_amd64.zip
 echo "c1419d8b3fcfefa8ad8b34c402269963a745f513c77ccda2ef96d575af70dd19  regen-ledger_linux_amd64.zip" | sha256sum -c
 unzip regen-ledger_linux_amd64.zip
-mkdir -p vendor/regen
-mv regen-ledger_linux_amd64/regen vendor/regen 
+mv regen-ledger_linux_amd64/regen "$1/bin/regen"
 
 echo "-----> Installing jq"
 
 # download and install jq binary
 curl -LO https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64
 echo "5942c9b0934e510ee61eb3e30273f1b3fe2590df93933a93d7c58b81d19c8ff5  jq-linux-amd64" | sha256sum -c
-mkdir -p vendor/jq
-mv jq-linux-amd64 vendor/jq/jq
-chmod +x vendor/jq/jq
+mv jq-linux-amd64 "$1/bin/jq" 
+chmod +x "$1/bin/jq"
